@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -24,6 +25,11 @@ export class HeaderComponent implements OnInit {
     let pageNavList = document.getElementsByClassName("pageNavList")[0];
     body.classList.remove("overlayIn");
     pageNavList.classList.remove("pageNavList--active")
+  }
+
+  logout() {
+    this.router.navigate(['/login']);
+    sessionStorage.removeItem("Username");
   }
 
 }
