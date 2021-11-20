@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../Modals/user.modal';
 import { UsersService } from '../../services/users.service';
 import { FormBuilder, Validators } from '@angular/forms';
 
