@@ -1,0 +1,40 @@
+<header class="pageHeader">
+    <div class="container">
+        <nav class="pageNav">
+            <div class="pageNav__left">
+                <a class="pageLogo" href="javascript:void(0);">
+                    <img src="./assets/images/Logo.svg" alt="page-logo" class="responsive" />
+                </a>
+                <ul class="pageNavList">
+                    <span class="navOut" (click)="menuClose()"></span>
+                    <li class="pageNavList__item">
+                        <a href="javascript:void(0);" class="pageNavList__item__link">Products</a>
+                    </li>
+                    <li class="pageNavList__item">
+                        <a href="javascript:void(0);" class="pageNavList__item__link">Solutions</a>
+                    </li>
+                    <li class="pageNavList__item">
+                        <a href="javascript:void(0);" class="pageNavList__item__link">Pricing</a>
+                    </li>
+                    <li class="pageNavList__item">
+                        <a href="javascript:void(0);" class="pageNavList__item__link">Resources</a>
+                    </li>
+                    <li class="pageNavList__item">
+                        <a href="javascript:void(0);" class="pageNavList__item__link">Company</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="pageNav__right">
+                <span class="langBlock langBlock--usa"></span>
+                <a href="javascript:void(0);" class="btn btn--outlined">Log In</a>
+                <a href="javascript:void(0);" class="btn btn--white">
+                    Sign Up
+                    <span class="iconIn iconIn--rightArrow"></span>
+                </a>
+                <span class="hamburger" (click)="menuOpen()">
+                    <label></label>
+                </span>
+            </div>
+        </nav>
+    </div>
+</header>

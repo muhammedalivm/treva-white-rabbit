@@ -1,0 +1,83 @@
+$primary: #00ba74;
+$secondary: #030f3f;
+$third: #528ff0;
+$fourth: #2783f3;
+$mainFont: "HK Grotesk";
+$white: #ffffff;
+$bodyBg: $white;
+$black: #000000;
+$headerBG: #03062f;
+$contanier: 1090px;
+$containerLg: 1210px;
+
+.loginSection {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    background: $white;
+}
+
+.loginWrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginForm {
+    width: 100%;
+    max-width: 500px;
+    background: $secondary;
+    border-radius: 20px;
+    box-shadow: 0 0 10px 0 $black;
+    padding: 50px;
+    box-sizing: border-box;
+    h1 {
+        font-size: 20px;
+        font-weight: 300;
+        text-align: center;
+        margin: 20px 0 0px;
+        color: $white;
+    }
+    &__Panel {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+        label {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 0 0 5px;
+            color: $white;
+        }
+        input {
+            outline: 0;
+            font-size: 18px;
+            font-weight: 500;
+            width: 100%;
+            height: 42px;
+            border-radius: 12px;
+            padding: 0 10px;
+            border: 1px solid #e5e5e5;
+        }
+        .btn {
+            border: 0;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+    }
+}
+
+.errorValidation {
+    font-weight: 300;
+    margin: 30px 0 0;
+    color: red;
+}
+
+
+.responsive {
+    width: 200px;
+    margin: auto;
+    display: block;
+}

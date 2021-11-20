@@ -1,0 +1,115 @@
+$primary: #00ba74;
+$secondary: #030f3f;
+$third: #528ff0;
+$fourth: #2783f3;
+$mainFont: "HK Grotesk";
+$white: #ffffff;
+$bodyBg: $white;
+$black: #000000;
+$headerBG: #03062f;
+$contanier: 1090px;
+$containerLg: 1210px;
+
+@mixin sm-screen {
+    @media only screen and (max-width: 991px) {
+        @content;
+    }
+}
+
+//Medium Screen - 770 screen size
+@mixin xs-screen {
+    @media only screen and (max-width: 767px) {
+        @content;
+    }
+}
+
+.bannerSection {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 135px 0px;
+    background: url("/assets/images/bannerBG.svg") no-repeat;
+    background-size: cover;
+    background-position: right bottom;
+}
+
+.bannerContent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    @include xs-screen() {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.bannerContent__left h1 {
+    font-weight: 800;
+    font-size: 40px;
+    line-height: 53px;
+    letter-spacing: 0.01em;
+    color: $white;
+    margin: 0px;
+    padding-bottom: 36px;
+    margin-bottom: 32px;
+    position: relative;
+}
+
+.bannerContent__left {
+    width: 50%;
+    max-width: 410px;
+    @include xs-screen() {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+}
+
+.bannerContent__left .hasLine {
+    position: relative;
+}
+
+.bannerContent__left .hasLine:after {
+    content: "";
+    width: 24px;
+    height: 4px;
+    background: $primary;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
+
+.bannerContent__left p {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 32px;
+}
+
+.bannerContent__right {
+    width: 50%;
+    display: flex;
+    justify-content: flex-end;
+    @include xs-screen() {
+        width: 100%;
+    }
+}
+
+.bannerContent__left .btn {
+    padding: 12px 20px;
+}
+
+
+.bannerInnerImage {
+    @include xs-screen() {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+.bannerInnerImage__in {
+    @include xs-screen() {
+        width: 100%;
+    }
+}

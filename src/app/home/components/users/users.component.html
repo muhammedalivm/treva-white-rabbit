@@ -1,0 +1,93 @@
+<section class="userSection">
+    <div class="container">
+        <div class="userSection__Head">
+            <h3>Users <a (click)="openUserModal()" class="add-users-link">+ Add User</a></h3>
+            <div class="userSearch">
+                <input type="text" placeholder="Search here..." [(ngModel)]="query" id="listSearch">
+                <!-- <button type="submit" class="btn btn--fourth">Search</button>  -->
+            </div>
+        </div>
+        <div class="userSection__Body">
+            <div class="userGrid">
+                <div class="userGrid__Item" *ngFor="let user of users | searchFilter: query">
+                    <div class="userCard">
+                        <div class="userCard__Image" *ngIf="user.user.picture">
+                            <img [src]="user.user.picture.medium" alt="">
+                        </div>
+                        <div class="userCard__Name">
+                            <h3><span>{{user.user.name.title}}. </span>{{user.user.name.first + ' ' + user.user.name.last}}</h3>
+                        </div>
+                        <div class="userCard__Data">
+                            <p>{{user.user.email}}</p>
+                            <p>{{user.user.phone}}</p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="userPopup" *ngIf="addUserModal">
+    <div class="userPopup__Dialog">
+        <div class="userPopup__Head">
+            <h3>Add User</h3>
+        </div>
+        <div class="userPopup__Body">
+            <div class="addUserForm">
+                <form [formGroup]="addUserForm" (ngSubmit)="addUser()">
+                    <div class="addUserForm__Panel">
+                        <label>Title*</label>
+                        <select class="custom-select" formControlName="title" required>
+                            <option [ngValue]="null" disabled>Select Title</option>
+                            <option [ngValue]="'Mr'">Mr</option>
+                            <option [ngValue]="'Ms'">Ms</option>
+                            <option [ngValue]="'Mrs'">Mrs</option>
+                        </select>
+                    </div>
+                    <div class="addUserForm__Panel">
+                        <label>First Name*</label>
+                        <input type="text" formControlName="firstName" required>
+                    </div>
+                    <div class="addUserForm__Panel">
+                        <label>Last Name*</label>
+                        <input type="text" formControlName="lastName" required>
+                    </div>
+                    <div class="addUserForm__Panel">
+                        <label>Gender*</label>
+                        <select class="custom-select" formControlName="gender" required>
+                            <option [ngValue]="null" disabled>Select Gender</option>
+                            <option [ngValue]="'Male'">Male</option>
+                            <option [ngValue]="'Female'">Female</option>
+                        </select>
+                    </div>
+                    <div class="addUserForm__Panel">
+                        <label>Email*</label>
+                        <input type="text" formControlName="email" required>
+                    </div>
+                    <div class="addUserForm__Panel">
+                        <label>Username*</label>
+                        <input type="text" formControlName="username" required>
+                    </div>
+                    <div class="addUserForm__Panel">
+                        <label>Password*</label>
+                        <input type="password" formControlName="password" required>
+                    </div>
+                    <div class="addUserForm__Panel">
+                        <label>DOB*</label>
+                        <input type="date" formControlName="dob" required>
+                    </div>
+                    <div class="addUserForm__Panel">
+                        <label>Phone*</label>
+                        <input type="text" formControlName="phone" required>
+                    </div>
+                    <div class="addUserForm__Panel full">
+                        <button type="submit" class="btn btn--fourth" [disabled]="addUserForm.invalid">Add User</button>
+                        <button type="reset" class="btn btn--outlined" (click)="cancelUserModal()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

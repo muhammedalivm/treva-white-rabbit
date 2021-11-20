@@ -1,0 +1,24 @@
+<section class="loginSection">
+    <div class="container">
+        <div class="loginWrapper">
+            <div class="loginForm">
+                <img src="./assets/images/Logo.svg" alt="page-logo" class="responsive" />
+                <h1>Login</h1>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="loginForm__Panel">
+                        <label>Username</label>
+                        <input type="text" formControlName="username" required>
+                    </div>
+                    <div class="loginForm__Panel">
+                        <label>Password</label>
+                        <input type="password" formControlName="password" required>
+                    </div>
+                    <div class="errorValidation" *ngIf="errorMessage">{{errorMessage}}</div>
+                    <div class="loginForm__Panel">
+                        <button type="submit" class="btn btn--fourth" [disabled]="loginForm.invalid">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

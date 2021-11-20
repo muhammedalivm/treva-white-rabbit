@@ -30,7 +30,11 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/slick.min.js",
+              "src/assets/js/template.js"
+            ]
           },
           "configurations": {
             "production": {

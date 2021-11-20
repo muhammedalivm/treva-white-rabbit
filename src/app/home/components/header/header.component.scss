@@ -1,0 +1,213 @@
+$primary: #00ba74;
+$secondary: #030f3f;
+$third: #528ff0;
+$fourth: #2783f3;
+$mainFont: "HK Grotesk";
+$white: #ffffff;
+$bodyBg: $white;
+$black: #000000;
+$headerBG: #03062f;
+$contanier: 1090px;
+$containerLg: 1210px;
+
+@mixin sm-screen {
+  @media only screen and (max-width: 991px) {
+    @content;
+  }
+}
+
+//Medium Screen - 770 screen size
+@mixin xs-screen {
+  @media only screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+.pageHeader {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: $headerBG;
+}
+
+.pageNav {
+  width: 100%;
+  height: 72px;
+  padding: 15px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pageLogo {
+  width: 80px;
+}
+
+.responsive {
+  width: 100%;
+}
+
+.pageNav__left {
+  display: flex;
+  align-items: center;
+}
+
+.pageNavList {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+  margin-left: 63.5px;
+  @include sm-screen() {
+    margin-left: 20px;
+  }
+  @include xs-screen() {
+    width: calc(100% - 30px);
+    max-width: 300px;
+    height: 100vh;
+    position: fixed;
+    left: -330px;
+    top: 0px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s linear;
+    box-shadow: 0px 0px 12px -4px #cccccc;
+  }
+  &--active {
+    @include xs-screen() {
+      left: -20px;
+      transition: 0.3s linear;
+    }
+  }
+}
+
+.pageNavList__item {
+  display: inline-block;
+  margin: 0px 17.5px;
+  @include sm-screen() {
+    margin: 0px 5px;
+  }
+  @include xs-screen() {
+    margin: 8px 0px;
+  }
+}
+
+.pageNavList__item__link {
+  font-size: 15px;
+  line-height: 23px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: normal;
+  transition: 0.3s linear;
+  @include xs-screen() {
+    color: $secondary;
+  }
+}
+
+.pageNavList__item__link:hover {
+  color: $primary;
+  transition: 0.3s linear;
+}
+
+.pageNav__right {
+  display: flex;
+  align-items: center;
+}
+
+.langBlock {
+  width: 24px;
+  height: 16.69px;
+  background: url("/assets/images/USA.svg") no-repeat;
+  background-size: contain;
+  margin-right: 16px;
+  @include sm-screen() {
+    margin-right: 5px;
+  }
+}
+
+.pageNav__right .btn {
+  margin: 0px 8px;
+  @include sm-screen() {
+    margin: 0px 3px;
+    padding: 5px 10px;
+  }
+}
+
+.pageNav__right .btn .iconIn--rightArrow {
+  margin-left: 10px;
+  @include sm-screen() {
+    display: none;
+  }
+}
+
+.hamburger {
+  width: 30px;
+  height: 30px;
+  display: none;
+  align-items: center;
+  justify-self: center;
+  margin-left: 10px;
+  position: relative;
+  @include xs-screen() {
+    display: flex;
+  }
+}
+
+.hamburger label {
+  width: 30px;
+  height: 2px;
+  background: $white;
+}
+
+.hamburger:before,
+.hamburger:after {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: $white;
+  position: absolute;
+  left: 0px;
+}
+
+.hamburger:before {
+  top: 5px;
+}
+
+.hamburger:after {
+  bottom: 5px;
+}
+
+.navOut {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  display: none;
+  @include xs-screen() {
+    display: block;
+  }
+}
+
+.navOut:before,
+.navOut:after {
+  content: "";
+  width: 24px;
+  height: 2px;
+  background: $secondary;
+  position: absolute;
+  left: calc(50% - 12px);
+  top: calc(50% - 1px);
+}
+
+.navOut:before {
+  transform: rotate(45deg);
+}
+
+.navOut:after {
+  transform: rotate(-45deg);
+}
