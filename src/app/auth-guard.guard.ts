@@ -8,14 +8,13 @@ declare var sessionStorage: Storage;
   providedIn: 'root'
 })
 export class AuthGuardGuard implements CanActivate {
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
   canActivate(): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if(sessionStorage.getItem('Username') === 'admin') {
-      this.router.navigate(['/home']);
-    } else {
+    if (!sessionStorage.getItem('Username')) {
       this.router.navigate(['/login']);
+      return false;
     }
     return true;
   }
-  
+
 }
