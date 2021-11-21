@@ -8,9 +8,12 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
+  userName: string;
+
   constructor(private router: Router) { }
 
   ngOnInit() {
+    this.userName = sessionStorage.getItem('Username');
   }
 
   menuOpen() {
